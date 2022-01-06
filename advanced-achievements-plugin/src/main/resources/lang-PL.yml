@@ -192,8 +192,6 @@ list-smelting: '&6Przepalone Surowce'
 list-commands: '&6Inne Osiagniecia'
 list-custom: '&6Inne'
 list-targetsshot: '&6Strzelone Cele'
-list-raids-won: '&6Wygrane Raidy'
-list-riptides: '&6Uzyte Prady'
 list-advancements-completed: '&6Wykonane Osiagniecia'
 
 # Related to /aach toggle.

@@ -53,10 +53,10 @@ Sound: true
 SoundBook: entity_player_levelup
 
 # 当拥有所有成就的玩家使用指令 /aach stats 时播放的音效。 可用值: github.com/PyvesB/advanced-achievements/wiki/Sound-names
-SoundStats: entity_firework_rocket_blast
+SoundStats: entity_firework_large_blast
 
 # 在排名榜单上玩家输入/aach top,week,month 时播放的音效。 可用值: github.com/PyvesB/advanced-achievements/wiki/Sound-names
-SoundRanking: entity_firework_rocket_blast
+SoundRanking: entity_firework_large_blast
 
 # 设置插件的图标/前缀 (默认: 三叶草, \u2618).
 Icon: \u2618
@@ -833,34 +833,6 @@ Smelting:
     Message: 已经熔炼了250个东西
     Name: smeltitems_250
     DisplayName: 冶 炼 大 师
-    Type: normal
-
-# 赢得袭击
-RaidsWon:
-  1:
-    Goal: 赢得一场袭击
-    Message: 袭击胜利！
-    Name: raidswon_1
-    DisplayName: 保卫羊村
-    Type: normal
-    Reward:
-      Item: emerald 8
-  10:
-    Goal: 赢得十场袭击
-    Message: 获胜十次！
-    Name: raidswon_10
-    DisplayName: 奸商保护者
-    Type: normal
-    Reward:
-      Item: totem_of_undying 1
-
-# 使用激流
-Riptides:
-  1:
-    Goal: 使用激流魔法！！
-    Message: 你掌握了大海！
-    Name: riptides_1
-    DisplayName: 海 王
     Type: normal
 
 # 完成指定数量成就

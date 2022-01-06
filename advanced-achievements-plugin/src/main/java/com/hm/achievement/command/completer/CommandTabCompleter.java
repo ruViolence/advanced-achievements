@@ -19,6 +19,7 @@ import com.hm.achievement.command.executable.AbstractCommand;
 import com.hm.achievement.command.executable.CommandSpec;
 import com.hm.achievement.command.executable.DeleteCommand;
 import com.hm.achievement.command.executable.EasterEggCommand;
+import com.hm.achievement.command.executable.GenerateCommand;
 import com.hm.achievement.command.executable.ResetCommand;
 import com.hm.achievement.config.AchievementMap;
 
@@ -30,6 +31,8 @@ import com.hm.achievement.config.AchievementMap;
  */
 public class CommandTabCompleter implements TabCompleter {
 
+	private static final int MAX_LIST_LENGTH = 50;
+
 	private final AchievementMap achievementMap;
 	private final Set<CommandSpec> commandSpecs;
 
@@ -37,7 +40,7 @@ public class CommandTabCompleter implements TabCompleter {
 	public CommandTabCompleter(AchievementMap achievementMap, Set<AbstractCommand> commands) {
 		this.achievementMap = achievementMap;
 		this.commandSpecs = commands.stream()
-				.filter(c -> !(c instanceof EasterEggCommand))
+				.filter(c -> !(c instanceof EasterEggCommand || c instanceof GenerateCommand))
 				.map(c -> c.getClass().getAnnotation(CommandSpec.class))
 				.collect(Collectors.toSet());
 	}
@@ -76,7 +79,7 @@ public class CommandTabCompleter implements TabCompleter {
 
 	/**
 	 * Returns a partial list based on the input set. Members of the returned list must start with what the player has
-	 * types so far.
+	 * types so far. The list also has a limited length prior to Minecraft 1.13 to avoid filling the player's screen.
 	 *
 	 * @param options
 	 * @param prefix
@@ -87,11 +90,18 @@ public class CommandTabCompleter implements TabCompleter {
 		// Replace spaces with an Open Box character to prevent completing wrong word. Prevented Behaviour:
 		// T -> Tamer -> Teleport Man -> Teleport The Avener -> Teleport The The Smelter
 		// Sort matching elements by alphabetical order.
-		return options.stream()
+		List<String> allOptions = options.stream()
 				.filter(s1 -> s1.toLowerCase().startsWith(prefix.toLowerCase()))
 				.map(s -> s.replace(' ', '\u2423'))
 				.sorted()
 				.collect(Collectors.toList());
+
+		if (allOptions.size() > MAX_LIST_LENGTH) {
+			allOptions = allOptions.subList(0, MAX_LIST_LENGTH - 1);
+			// Suspension points to show that list was truncated.
+			allOptions.add("\u2022\u2022\u2022");
+		}
+		return allOptions;
 	}
 
 	private boolean shouldReturnPlayerList(Command command, String[] args) {

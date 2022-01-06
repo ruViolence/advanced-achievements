@@ -8,151 +8,205 @@
 #======================================================================================================================#
 
 # Possible items: https://github.com/PyvesB/advanced-achievements/wiki/Material-names
-# Do not use the same Item twice.
+# Do not use the same Item and Metadata pair twice.
 # The order of the categories in the GUI will match the same order as in this file.
 
 # Items used to represent the achievements depending on their Type parameter.
 AchievementNotStarted:
   normal:
-    Item: red_terracotta
+   Item: stained_clay
+   Metadata: 14
   rare:
-    Item: red_glazed_terracotta
+   Item: red_glazed_terracotta
 AchievementStarted:
   normal:
-    Item: yellow_terracotta
+   Item: stained_clay
+   Metadata: 4
   rare:
-    Item: yellow_glazed_terracotta
+   Item: yellow_glazed_terracotta
 AchievementReceived:
   normal:
-    Item: lime_terracotta
+   Item: stained_clay
+   Metadata: 5
   rare:
-    Item: lime_glazed_terracotta
+   Item: lime_glazed_terracotta
 
 # Locks for HideProgressiveAchievements and HideNotReceivedCategories.
 AchievementLock:
-  Item: black_terracotta
+  Item: stained_clay
+  Metadata: 15
 CategoryLock:
-  Item: barrier
+  Item: bedrock
+  Metadata: 0
 
 # Buttons when navigating in a category. BackButton is ignored if BackButtonIsCategoryItem is true in config.yml.
 BackButton:
   Item: book
+  Metadata: 0
 PreviousButton:
-  Item: oak_button
+  Item: wood_button
+  Metadata: 0
 NextButton:
   Item: stone_button
+  Metadata: 0
 
 # Items used to represent the categories.
 Places:
   Item: stone
+  Metadata: 6
 Breaks:
-  Item: stone_bricks
+  Item: smooth_brick
+  Metadata: 2
 Kills:
   Item: bone
+  Metadata: 0
 Crafts:
-  Item: crafting_table
+  Item: workbench
+  Metadata: 0
 Breeding:
   Item: wheat
+  Metadata: 0
 PlayerCommands:
   Item: paper
+  Metadata: 0
 JobsReborn:
-  Item: netherite_scrap
+  Item: iron_ingot
+  Metadata: 0
 Connections:
-  Item: oak_door
+  Item: wood_door
+  Metadata: 0
 Deaths:
-  Item: skeleton_skull
+  Item: skull_item
+  Metadata: 0
 Arrows:
   Item: arrow
+  Metadata: 0
 Snowballs:
-  Item: snowball
+  Item: snow_ball
+  Metadata: 0
 Eggs:
   Item: egg
+  Metadata: 0
 Fish:
-  Item: tropical_fish
+  Item: raw_fish
+  Metadata: 2
 Treasures:
   Item: fishing_rod
+  Metadata: 0
 ItemBreaks:
   Item: flint
+  Metadata: 0
 EatenItems:
-  Item: melon_slice
+  Item: melon
+  Metadata: 0
 Shear:
   Item: shears
+  Metadata: 0
 Milk:
   Item: milk_bucket
+  Metadata: 0
 LavaBuckets:
   Item: lava_bucket
+  Metadata: 0
 WaterBuckets:
   Item: water_bucket
+  Metadata: 0
 Trades:
   Item: emerald
+  Metadata: 0
 AnvilsUsed:
   Item: anvil
+  Metadata: 0
 Enchantments:
-  Item: enchanting_table
+  Item: enchantment_table
+  Metadata: 0
 Beds:
-  Item: white_bed
+  Item: bed
+  Metadata: 0
 MaxLevel:
-  Item: experience_bottle
+  Item: exp_bottle
+  Metadata: 0
 ConsumedPotions:
   Item: glass_bottle
+  Metadata: 0
 PlayedTime:
-  Item: clock
+  Item: watch
+  Metadata: 0
 ItemDrops:
   Item: hopper
+  Metadata: 0
 ItemPickups:
   Item: chest
+  Metadata: 0
 HoePlowings:
   Item: grass_path
+  Metadata: 0
 Fertilising:
-  Item: bone_meal
+  Item: ink_sack
+  Metadata: 15
 Taming:
-  Item: lead
+  Item: leash
+  Metadata: 0
 Brewing:
-  Item: brewing_stand
+  Item: brewing_stand_item
+  Metadata: 0
 Fireworks:
-  Item: firework_rocket
+  Item: firework
+  Metadata: 0
 MusicDiscs:
   Item: jukebox
+  Metadata: 0
 EnderPearls:
   Item: ender_pearl
+  Metadata: 0
 PetMasterGive:
-  Item: golden_horse_armor
+  Item: gold_barding
+  Metadata: 0
 PetMasterReceive:
-  Item: iron_horse_armor
+  Item: iron_barding
+  Metadata: 0
 Smelting:
   Item: furnace
+  Metadata: 0
 DistanceFoot:
   Item: leather_boots
+  Metadata: 0
 DistancePig:
-  Item: carrot_on_a_stick
+  Item: carrot_stick
+  Metadata: 0
 DistanceHorse:
   Item: saddle
+  Metadata: 0
 DistanceMinecart:
   Item: minecart
+  Metadata: 0
 DistanceBoat:
-  Item: birch_boat
+  Item: boat
+  Metadata: 0
 DistanceGliding:
   Item: elytra
+  Metadata: 0
 DistanceLlama:
-  Item: llama_spawn_egg
+  Item: carpet
+  Metadata: 9
 DistanceSneaking:
   Item: leather_helmet
+  Metadata: 0
 TargetsShot:
-  Item: firework_star
-RaidsWon:
-  Item: gray_banner
-Riptides:
-  Item: trident
+  Item: firework_charge
+  Metadata: 0
 AdvancementsCompleted:
   Item: gold_ingot
+  Metadata: 0
 BooksEdited:
-  Item: writable_book
-EffectsHeld:
-  Item: lingering_potion
+  Item: book_and_quill
+  Metadata: 0
 Custom:
   Item: feather
+  Metadata: 0
 Commands:
   Item: bookshelf
+  Metadata: 0
 
 #======================================================================================================================#
 #                                                  FUTURE PAREMETERS                                                   #

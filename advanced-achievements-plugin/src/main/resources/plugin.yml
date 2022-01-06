@@ -128,8 +128,6 @@ permissions:
       achievement.count.petmastergive: true
       achievement.count.petmasterreceive: true
       achievement.count.smelting: true
-      achievement.count.raidswon: true
-      achievement.count.riptides: true
       achievement.count.booksedited: true
       achievement.count.places.*: true
       achievement.count.breaks.*: true
@@ -140,7 +138,6 @@ permissions:
       achievement.count.playercommands.*: true
       achievement.count.jobsreborn.*: true
       achievement.count.custom.*: true
-      achievement.count.effectsheld.*: true
   achievement.count.connections:
     description: Allows connection statistics in database to increase.
     default: true
@@ -264,12 +261,6 @@ permissions:
   achievement.count.smelting:
     description: Allows smelting statistics in database to increase.
     default: true
-  achievement.count.raidswon:
-    description: Allows raids won statistics in database to increase.
-    default: true
-  achievement.count.riptides:
-    description: Allows riptides statistics in database to increase.
-    default: true
   achievement.count.booksedited:
     description: Allows books edited statistics in database to increase.
     default: true
@@ -300,14 +291,11 @@ permissions:
   achievement.count.custom.*:
     description: Allows custom statistics in database to increase.
     default: true
-  achievement.count.effectsheld.*:
-    description: Allows effects held statistics in database to increase.
-    default: true
 #======================================================================================================================#
 #                                /!\  Dynamic permissions added at plugin startup  /!\                                 #
 #======================================================================================================================#
 # For individual achievements, simply use the Name property, e.g achievement.place_100_stone
-# For categories with sub-categories (Breaks, Places, Crafts, Kills, Breeding, PlayerCommands, Custom, TargetsShot and EffectsHeld):
+# For categories with sub-categories (Breaks, Places, Crafts, Kills, Breeding, PlayerCommands, Custom and TargetsShot):
 # - use the sub-category key: for example for stone breaks, achievement.count.breaks.stone
 # - for PlayerCommands, use lower case without spaces nor the initial slash: achievement.count.playercommands.aachbook
 # - for Kills with a custom mob name you should remove any whitespaces: achievement.count.kills.§2SkeletalKnight

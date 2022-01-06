@@ -196,9 +196,6 @@ list-smelting: "Genstande smeltet"
 list-commands: "Andre præsentationer"
 list-custom: "Brugerdefinerede kategorier"
 list-targetsshot: "Mål skudt"
-list-raids-won: "Raids vundet"
-list-riptides: "Riptides brugt"
-list-jobsreborn: "Jobs niveau forhøjet"
 list-advancements-completed: "præsentationer færdiggjort"
 
 # Relateret til /aach toggle.

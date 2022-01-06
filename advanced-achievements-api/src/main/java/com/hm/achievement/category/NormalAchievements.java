@@ -50,8 +50,6 @@ public enum NormalAchievements implements Category {
 	DISTANCEGLIDING("DistanceGliding"),
 	DISTANCELLAMA("DistanceLlama"),
 	DISTANCESNEAKING("DistanceSneaking"),
-	RAIDSWON("RaidsWon"),
-	RIPTIDES("Riptides"),
 	ADVANCEMENTSCOMPLETED("AdvancementsCompleted"),
 	BOOKSEDITED("BooksEdited");
 

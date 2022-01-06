@@ -52,7 +52,6 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 	// Corresponds to times at which players have received their books. Cooldown structure.
 	private final HashMap<UUID, Long> playersBookTime = new HashMap<>();
 	private final Logger logger;
-	private final int serverVersion;
 	private final AbstractDatabaseManager databaseManager;
 	private final SoundPlayer soundPlayer;
 	private final AchievementMap achievementMap;
@@ -71,11 +70,10 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 
 	@Inject
 	public BookCommand(@Named("main") YamlConfiguration mainConfig, @Named("lang") YamlConfiguration langConfig,
-			StringBuilder pluginHeader, Logger logger, int serverVersion, AbstractDatabaseManager databaseManager,
-			SoundPlayer soundPlayer, AchievementMap achievementMap) {
+			StringBuilder pluginHeader, Logger logger, AbstractDatabaseManager databaseManager, SoundPlayer soundPlayer,
+			AchievementMap achievementMap) {
 		super(mainConfig, langConfig, pluginHeader);
 		this.logger = logger;
-		this.serverVersion = serverVersion;
 		this.databaseManager = databaseManager;
 		this.soundPlayer = soundPlayer;
 		this.achievementMap = achievementMap;
@@ -209,26 +207,22 @@ public class BookCommand extends AbstractCommand implements Cleanable {
 	 */
 	@SuppressWarnings("unchecked")
 	private void setBookPages(List<String> bookPages, BookMeta bookMeta) {
-		if (serverVersion <= 15) {
-			try {
-				// Code we're trying to execute: this.pages.add(CraftChatMessage.fromString(page, true)[0]); in
-				// CraftMetaBook.java.
-				String versionIdentifier = Bukkit.getServer().getClass().getPackage().getName().substring(23);
-				Class<?> craftMetaBookClass = Class.forName("org.bukkit.craftbukkit." + versionIdentifier + "."
-						+ PACKAGE_INVENTORY + "." + CLASS_CRAFT_META_BOOK);
-				List<Object> pages = (List<Object>) craftMetaBookClass.getField(FIELD_PAGES)
-						.get(craftMetaBookClass.cast(bookMeta));
-				Method fromStringMethod = Class.forName("org.bukkit.craftbukkit." + versionIdentifier + "."
-						+ PACKAGE_UTIL + "." + CLASS_CRAFT_CHAT_MESSAGE)
-						.getMethod(METHOD_FROM_STRING, String.class, boolean.class);
-				for (String bookPage : bookPages) {
-					pages.add(((Object[]) fromStringMethod.invoke(null, bookPage, true))[0]);
-				}
-			} catch (Exception e) {
-				logger.warning("Error while creating book pages. Your achievements book may be trimmed down to 50 pages.");
-				bookMeta.setPages(bookPages);
+		try {
+			// Code we're trying to execute: this.pages.add(CraftChatMessage.fromString(page, true)[0]); in
+			// CraftMetaBook.java.
+			String versionIdentifier = Bukkit.getServer().getClass().getPackage().getName().substring(23);
+			Class<?> craftMetaBookClass = Class.forName("org.bukkit.craftbukkit." + versionIdentifier + "."
+					+ PACKAGE_INVENTORY + "." + CLASS_CRAFT_META_BOOK);
+			List<Object> pages = (List<Object>) craftMetaBookClass.getField(FIELD_PAGES)
+					.get(craftMetaBookClass.cast(bookMeta));
+			Method fromStringMethod = Class.forName("org.bukkit.craftbukkit." + versionIdentifier + "."
+					+ PACKAGE_UTIL + "." + CLASS_CRAFT_CHAT_MESSAGE)
+					.getMethod(METHOD_FROM_STRING, String.class, boolean.class);
+			for (String bookPage : bookPages) {
+				pages.add(((Object[]) fromStringMethod.invoke(null, bookPage, true))[0]);
 			}
-		} else {
+		} catch (Exception e) {
+			logger.warning("Error while creating book pages. Your achievements book may be trimmed down to 50 pages.");
 			bookMeta.setPages(bookPages);
 		}
 	}

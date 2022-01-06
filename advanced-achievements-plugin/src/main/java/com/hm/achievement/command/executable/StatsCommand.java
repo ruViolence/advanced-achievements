@@ -112,7 +112,7 @@ public class StatsCommand extends AbstractCommand {
 			}
 
 			if (configSound) {
-				soundPlayer.play(player, configSoundStats, "ENTITY_FIREWORK_ROCKET_BLAST");
+				soundPlayer.play(player, configSoundStats, "ENTITY_FIREWORK_LARGE_BLAST");
 			}
 		}
 	}

@@ -196,8 +196,6 @@ list-smelting: "熔炼物品"
 list-commands: "其他成就"
 list-custom: "自定义类"
 list-targetsshot: "射中目标"
-list-raids-won: "赢得袭击"
-list-riptides: "使用激流"
 list-advancements-completed: "获得成就"
 list-advancements-completed: "完成成就"
 

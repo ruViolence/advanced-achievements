@@ -194,8 +194,6 @@ list-smelting: "Roztavené Predmety"
 list-commands: "Ďalšie Úspechy"
 list-custom: "Vlastné Kategórie"
 list-targetsshot: "Zastrelené Ciele"
-list-raids-won: "Vyhrané Raidy"
-list-riptides: "Príliv"
 list-advancements-completed: "Splnené Úspechy"
 
 # Related to /aach toggle.

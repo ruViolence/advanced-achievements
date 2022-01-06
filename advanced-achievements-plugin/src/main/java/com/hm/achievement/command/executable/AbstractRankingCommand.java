@@ -181,7 +181,7 @@ public abstract class AbstractRankingCommand extends AbstractCommand {
 		}
 
 		if (configSound) {
-			soundPlayer.play(player, configSoundRanking, "ENTITY_FIREWORK_ROCKET_BLAST");
+			soundPlayer.play(player, configSoundRanking, "ENTITY_FIREWORK_LARGE_BLAST");
 		}
 	}
 }

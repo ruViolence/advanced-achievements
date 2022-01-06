@@ -197,12 +197,9 @@ list-smelting: "Items Smelt"
 list-commands: "Other Achievements"
 list-custom: "Custom Categories"
 list-targetsshot: "Targets Shot"
-list-raids-won: "Raids Won"
-list-riptides: "Riptides Used"
 list-jobsreborn: "Jobs Level-Up"
 list-advancements-completed: "Advancements Completed"
 list-booksedited: "Books Edited"
-list-effectsheld: "Effects Held"
 
 # Used in /aach toggle.
 toggle-displayed: "You will now be notified when other players get achievements."

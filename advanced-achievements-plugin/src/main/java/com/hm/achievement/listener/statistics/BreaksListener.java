@@ -69,6 +69,7 @@ public class BreaksListener extends AbstractListener {
 		}
 
 		Set<String> subcategories = new HashSet<>();
+		addMatchingSubcategories(subcategories, blockName + ':' + block.getState().getData().toItemStack().getDurability());
 		addMatchingSubcategories(subcategories, blockName);
 		updateStatisticAndAwardAchievementsIfAvailable(player, subcategories, 1);
 	}

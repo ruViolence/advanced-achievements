@@ -25,7 +25,6 @@ import com.hm.achievement.listener.statistics.CraftsListener;
 import com.hm.achievement.listener.statistics.DeathsListener;
 import com.hm.achievement.listener.statistics.DropsListener;
 import com.hm.achievement.listener.statistics.EatenItemsListener;
-import com.hm.achievement.listener.statistics.EffectsHeldListener;
 import com.hm.achievement.listener.statistics.EggsListener;
 import com.hm.achievement.listener.statistics.EnchantmentsListener;
 import com.hm.achievement.listener.statistics.EnderPearlsListener;
@@ -45,7 +44,6 @@ import com.hm.achievement.listener.statistics.PetMasterReceiveListener;
 import com.hm.achievement.listener.statistics.PickupsListener;
 import com.hm.achievement.listener.statistics.PlacesListener;
 import com.hm.achievement.listener.statistics.PlayerCommandsListener;
-import com.hm.achievement.listener.statistics.RiptidesListener;
 import com.hm.achievement.listener.statistics.ShearsListener;
 import com.hm.achievement.listener.statistics.SmeltingListener;
 import com.hm.achievement.listener.statistics.SnowballsListener;
@@ -54,7 +52,6 @@ import com.hm.achievement.listener.statistics.TargetsShotListener;
 import com.hm.achievement.listener.statistics.TradesListener;
 import com.hm.achievement.listener.statistics.TreasuresListener;
 import com.hm.achievement.listener.statistics.WaterBucketsListener;
-import com.hm.achievement.listener.statistics.WinRaidListener;
 import com.hm.achievement.runnable.AchieveDistanceRunnable;
 import com.hm.achievement.runnable.AchievePlayTimeRunnable;
 import com.hm.achievement.utils.StatisticIncreaseHandler;
@@ -265,14 +262,6 @@ public interface ReloadableModule {
 
 	@Binds
 	@IntoSet
-	Reloadable bindsWinRaidListener(WinRaidListener winRaidListener);
-
-	@Binds
-	@IntoSet
-	Reloadable bindsRiptidesListener(RiptidesListener riptidesListener);
-
-	@Binds
-	@IntoSet
 	Reloadable bindAdvancementsCompletedListener(AdvancementsCompletedListener advancementsCompletedListener);
 
 	@Binds
@@ -282,8 +271,4 @@ public interface ReloadableModule {
 	@Binds
 	@IntoSet
 	Reloadable bindBooksEditedListener(BooksEditedListener booksEditedListener);
-
-	@Binds
-	@IntoSet
-	Reloadable bindEffectsHeldListener(EffectsHeldListener effectsHeldListener);
 }

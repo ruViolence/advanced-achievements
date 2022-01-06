@@ -187,8 +187,6 @@ list-smelting: "Erze geschmolzen"
 list-commands: "Sonstige Erfolge"
 list-custom: "Benutzerdefinierte Kategorien"
 list-targetsshot: "Ziele erschossen"
-list-raids-won: "Raids gewonnen"
-list-riptides: "Springfluten benutzt"
 list-advancements-completed: "Errungenschaft abgeschlossen"
 
 # Related to /aach toggle.

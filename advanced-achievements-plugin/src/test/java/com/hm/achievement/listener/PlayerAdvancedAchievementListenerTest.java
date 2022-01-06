@@ -67,7 +67,7 @@ class PlayerAdvancedAchievementListenerTest {
 				.loadConfiguration(new InputStreamReader(getClass().getResourceAsStream("/lang.yml")));
 		underTest = new PlayerAdvancedAchievementListener(mainConfig, langConfig, mock(Logger.class),
 				new StringBuilder(PLUGIN_HEADER), new CacheManager(plugin, abstractDatabaseManager), plugin, null,
-				achievementMap, abstractDatabaseManager, null, new FancyMessageSender(16));
+				achievementMap, abstractDatabaseManager, null, new FancyMessageSender());
 		underTest.extractConfigurationParameters();
 		when(player.getUniqueId()).thenReturn(PLAYER_UUID);
 		when(player.getName()).thenReturn("DarkPyves");

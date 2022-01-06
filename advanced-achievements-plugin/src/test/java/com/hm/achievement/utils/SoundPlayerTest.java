@@ -35,17 +35,17 @@ class SoundPlayerTest {
 	void shouldUseProvidedSoundIfValid() {
 		SoundPlayer underTest = new SoundPlayer(logger);
 
-		underTest.play(player, "ENTITY_FIREWORK_ROCKET_BLAST", "SOME_FALLBACK");
+		underTest.play(player, "ENTITY_FIREWORK_LARGE_BLAST", "SOME_FALLBACK");
 
-		verify(player).playSound(location, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1.0f, 0.7f);
+		verify(player).playSound(location, Sound.ENTITY_FIREWORK_BLAST, 1.0f, 0.7f);
 	}
 
 	@Test
 	void shouldUseFallbackSoundIfProvidedInvalid() {
 		SoundPlayer underTest = new SoundPlayer(logger);
 
-		underTest.play(player, "INVALID", "ENTITY_FIREWORK_ROCKET_BLAST");
+		underTest.play(player, "INVALID", "ENTITY_FIREWORK_LARGE_BLAST");
 
-		verify(player).playSound(location, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1.0f, 0.7f);
+		verify(player).playSound(location, Sound.ENTITY_FIREWORK_BLAST, 1.0f, 0.7f);
 	}
 }

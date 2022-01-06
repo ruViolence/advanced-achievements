@@ -27,6 +27,7 @@ import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -164,7 +165,9 @@ public class PlayerAdvancedAchievementListener implements Listener, Reloadable {
 	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 		// Cancel damage if the firework was launched by the plugin.
-		event.setCancelled(event.getEntity().hasMetadata(ADVANCED_ACHIEVEMENTS_FIREWORK));
+		if (event.getDamager().getType() == EntityType.FIREWORK) {
+			event.setCancelled(event.getDamager().hasMetadata(ADVANCED_ACHIEVEMENTS_FIREWORK));
+		}
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

@@ -53,10 +53,10 @@ Sound: true
 SoundBook: entity_player_levelup
 
 # For /aach stats when all achievements have been received.
-SoundStats: entity_firework_rocket_blast
+SoundStats: entity_firework_large_blast
 
 # For /aach top, week, month when ranked in the top list.
-SoundRanking: entity_firework_rocket_blast
+SoundRanking: entity_firework_large_blast
 
 # Icon of the plugin (default: shamrock, \u2618).
 Icon: \u2618
@@ -127,9 +127,9 @@ OreBlocks:
   - diamond_ore
   - emerald_ore
   - lapis_ore
-  - nether_gold_ore
-  - nether_quartz_ore
   - redstone_ore
+  - glowing_redstone_ore
+  - quartz_ore
 
 # Language file to use. Available: lang.yml, lang-BP.yml, lang-CN.yml, lang-CZ.yml, lang-DA.yml, lang-DE.yml,
 # lang-ES.yml, lang-FI.yml, lang-FR.yml, lang-HU.yml, lang-IT.yml, lang-PL.yml, lang-RO.yml, lang-RU.yml, lang-SE.yml,
@@ -191,6 +191,10 @@ ForbiddenFireworkBlocks:
   - command_block_minecart
   - furnace_minecart
   - chest_minecart
+  - explosive_minecart
+  - command_minecart
+  - powered_minecart
+  - storage_minecart
 
 # Used for the Fireworks achievement category. In vanilla Minecraft, fireworks can only be launched on the following
 # blocks when sneaking. Unless listed here, players may be able to abuse the Fireworks category by repeatedly right 
@@ -302,12 +306,39 @@ ForbiddenFireworkBlocksWhenNotSneaking:
   - oak_wall_sign
   - spruce_sign
   - spruce_wall_sign
+  - sign
+  - wall_sign
+  - workbench
+  - burning_furnace
+  - wood_button
+  - trap_door
+  - fence_gate
+  - enchantment_table
+  - wood_door
+  - wooden_door
+  - boat
+  - bed_block
+  - cake_block
+  - redstone_comparator_off
+  - redstone_comparator_on
+  - diode_block_off
+  - diode_block_on
+  - command
+  - boat_acacia
+  - boat_birch
+  - boat_dark_oak
+  - boat_jungle
+  - boat_spruce
+  - command_repeating
+  - command_chain
+  - silver_shulker_box
+  - sign_post
 
 # Used for the HoePlowings achievement category. You may need to expand this list when new Minecraft versions are
 # released.
 HoePlowableBlocks:
   - dirt
-  - grass_block
+  - grass
 
 # Used for the Fish achievement category. You may need to expand this list when new Minecraft versions are released.
 FishableFish:
@@ -315,6 +346,7 @@ FishableFish:
   - salmon
   - pufferfish
   - tropical_fish
+  - raw_fish
 
 #======================================================================================================================#
 #                                                     GUI SETTINGS                                                     #
@@ -420,6 +452,7 @@ BungeeMode: false
 
 # Count blocks placed. You can use any of the following:
 # - block names (available names: https://github.com/PyvesB/advanced-achievements/wiki/Material-names).
+# - notations such as sand:1 (i.e. sand item with metadata 1, red sand) for 1.7-1.12 Minecraft versions .
 # - custom display name of items (e.g. the name of a player's head).
 Places:
   chest:
@@ -468,6 +501,7 @@ Places:
 
 # Count blocks broken. You can use any of the following:
 # - block names (available names: https://github.com/PyvesB/advanced-achievements/wiki/Material-names).
+# - notations such as sand:1 (i.e. sand item with metadata 1, red sand) for 1.7-1.12 Minecraft versions .
 Breaks:
   ice:
     10:
@@ -606,17 +640,6 @@ JobsReborn:
       Message: You have reached hunter level 2!
       Name: jobsreborn_1_hunter
       DisplayName: Hunter
-      Type: normal
-
-# Count effects held (effect name in lower case).
-# Available effects: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
-EffectsHeld:
-  jump:
-    1:
-      Goal: Hold the jump boost effect!
-      Message: You jumped as high as a kangaroo!
-      Name: effectsheld_1_jump
-      DisplayName: Kangaroo
       Type: normal
 
 #======================================================================================================================#
@@ -994,34 +1017,6 @@ Smelting:
     Message: 250 items smelt in a furnace!
     Name: smeltitems_250
     DisplayName: The Smelter
-    Type: normal
-
-# Count raids won.
-RaidsWon:
-  1:
-    Goal: Win a raid.
-    Message: A raid won!
-    Name: raidswon_1
-    DisplayName: Accident or intentional?
-    Type: normal
-    Reward:
-      Item: emerald 8
-  10:
-    Goal: Win ten raids.
-    Message: Ten raids!
-    Name: raidswon_10
-    DisplayName: Village Protector
-    Type: rare
-    Reward:
-      Item: totem_of_undying 1
-
-# Count the number of times riptide is used with a trident.
-Riptides:
-  1:
-    Goal: Use a magical trident.
-    Message: You've mastered the powers of the sea!
-    Name: riptides_1
-    DisplayName: Poseidon
     Type: normal
 
 # Count the number of advancements completed. Covers all Vanilla advancements, not only those created by /aach generate.

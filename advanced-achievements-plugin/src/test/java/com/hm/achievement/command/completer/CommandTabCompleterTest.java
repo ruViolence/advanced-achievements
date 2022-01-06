@@ -2,6 +2,7 @@ package com.hm.achievement.command.completer;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
+import static java.util.Collections.emptySet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -10,6 +11,7 @@ import static org.mockito.Mockito.when;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -201,6 +203,27 @@ class CommandTabCompleterTest {
 		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, args);
 
 		assertEquals(asList("spaced␣name␣achievement!", "special␣event␣achievement!"), completionResult);
+	}
+
+	@Test
+	void shoudTruncateCompletionListOnOldServerVersionsIfOverFiftyElements() {
+		AchievementMap achievementMap = new AchievementMap();
+		IntStream.rangeClosed(1, 100)
+				.boxed()
+				.map(i -> new AchievementBuilder()
+						.name("ach" + i)
+						.displayName("Display " + i)
+						.category(CommandAchievements.COMMANDS)
+						.subcategory("yourAch" + i)
+						.build())
+				.forEach(achievementMap::put);
+		underTest = new CommandTabCompleter(achievementMap, emptySet());
+
+		String[] args = { "give", "" };
+		List<String> completionResult = underTest.onTabComplete(commandSender, command, null, args);
+
+		assertEquals(50, completionResult.size());
+		assertEquals("\u2022\u2022\u2022", completionResult.get(49));
 	}
 
 	@Test

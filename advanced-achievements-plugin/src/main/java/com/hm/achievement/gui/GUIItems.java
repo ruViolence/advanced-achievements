@@ -98,9 +98,9 @@ public class GUIItems implements Reloadable {
 		orderedAchievementItems.put(new OrderedCategory(orderedCategories.indexOf(categoryName),
 				CommandAchievements.COMMANDS), itemStack);
 
-		achievementNotStartedDefault = new ItemStack(Material.RED_TERRACOTTA, 1);
-		achievementStartedDefault = new ItemStack(Material.YELLOW_TERRACOTTA, 1);
-		achievementReceivedDefault = new ItemStack(Material.LIME_TERRACOTTA, 1);
+		achievementNotStartedDefault = new ItemStack(Material.STAINED_CLAY, 1, (short) 14);
+		achievementStartedDefault = new ItemStack(Material.STAINED_CLAY, 1, (short) 4);
+		achievementReceivedDefault = new ItemStack(Material.STAINED_CLAY, 1, (short) 5);
 		for (String type : guiConfig.getConfigurationSection("AchievementNotStarted").getKeys(false)) {
 			achievementNotStarted.put(type, createItemStack("AchievementNotStarted." + type));
 		}
@@ -127,7 +127,8 @@ public class GUIItems implements Reloadable {
 		String path = categoryName + ".Item";
 		Material material = materialHelper.matchMaterial(guiConfig.getString(path, null), Material.BEDROCK,
 				"gui.yml (" + path + ")");
-		return new ItemStack(material, 1);
+		short metadata = (short) guiConfig.getInt(categoryName + ".Metadata", 0);
+		return new ItemStack(material, 1, metadata);
 	}
 
 	/**

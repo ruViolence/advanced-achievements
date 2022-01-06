@@ -44,6 +44,7 @@ public class PlacesListener extends AbstractListener {
 
 		String blockName = placedItem.getType().name().toLowerCase();
 		if (player.hasPermission(category.toChildPermName(blockName))) {
+			addMatchingSubcategories(subcategories, blockName + ':' + placedItem.getDurability());
 			addMatchingSubcategories(subcategories, blockName);
 		}
 

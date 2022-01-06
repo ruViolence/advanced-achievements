@@ -58,6 +58,7 @@ public class CraftsListener extends AbstractListener {
 		}
 
 		Set<String> subcategories = new HashSet<>();
+		addMatchingSubcategories(subcategories, craftName + ':' + item.getDurability());
 		addMatchingSubcategories(subcategories, craftName);
 
 		int eventAmount = item.getAmount();
